@@ -1,3 +1,35 @@
+@use'./typography' as *;
+
+$bp-tablet: 768px;
+$bp-tablet-horizontal: 1024px;
+$bp-desktop: 1170px;
+$bp-desktop-xl: 1440px;
+$altura_header: 80px;
+$padding_left_rigt: 2rem;
+
+$primary-font: 'Victor Mono', monospace, 'Google Sans', sans-serif;
+
+$black: #151515;
+$white: #ffffff;
+$orange: #ff6202;
+$orange_1: #f86003;
+$orange_2: #d75405;
+$green: #4EE1A0;
+$gray: #242424;
+$gray_2: #505050;
+$gray_3: #d9d9d9;
+$light-gray: #a5a5a5;
+$gradient-start: #202020;
+$gradient-end: #151515;
+
+$gradient-border: linear-gradient(to right, #11998e 0%, #38ef7d 100%);
+$card-color: #222;
+
+
+
+
+
+
 $primary-color: #0b0f19;
 $accent-color: #ff3366;
 $text-main: #333333;

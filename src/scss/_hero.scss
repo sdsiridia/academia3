@@ -1,0 +1,95 @@
+// @use 'variables' as v;
+// @use 'reset';
+// @use 'mixins' as m;
+
+// // Estilos globales de secciones (puedes separarlos en archivos individuales)
+// .header {
+//     background-color: v.$primary-color;
+//     color: v.$text-light;
+//     text-align: center;
+//     padding: 6rem 0;
+
+//     h1 {
+//         font-size: 2.5rem;
+//         margin-bottom: 1.5rem;
+//     }
+
+//     .hero-subtitle {
+//         font-size: 1.2rem;
+//         max-width: 700px;
+//         margin: 0 auto 2rem;
+//     }
+
+//     .btn-primary {
+//         background-color: v.$accent-color;
+//         color: v.$text-light;
+//         padding: 0.8rem 1.5rem;
+//         border-radius: 4px;
+//         text-decoration: none;
+//         font-weight: bold;
+//         transition: v.$transition;
+
+//         &:hover {
+//             opacity: 0.9;
+//         }
+//     }
+
+//     .navbar {
+//         height: 100%;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         // flex-wrap: wrap;
+//         padding: 0 v.$padding_left_rigt;
+
+//         @include m.breakpoint(tablet) {
+//             padding: 0 6px;
+//         }
+//     }
+
+//     .menu_hamburguesa {
+//         display: none;
+//     }
+
+//     .menu_hamburguesa:checked+.ul_links {
+//         height: calc(100vh - v.$altura_header);
+//     }
+
+//     .logo {
+//         color: v.$white;
+//     }
+
+//     // .label_hamburguesa {
+
+//     // }
+//     .list_icon {
+//         color: v.$white;
+//         cursor: pointer;
+//     }
+
+//     .ul_links {
+//         width: 100%;
+//         background-color: v.$orange_2;
+//         z-index: 1;
+//         position: absolute;
+//         top: v.$altura_header;
+//         left: 0;
+//         height: 0;
+//         overflow: hidden;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         gap: 3rem;
+
+//         transition: all .3s;
+//     }
+
+//     // .li_links {
+//     // }
+//     .link {
+//         font-size: 3em;
+//         color: v.$white;
+//         font-weight: bold;
+//     }
+// }

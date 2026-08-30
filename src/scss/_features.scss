@@ -1,0 +1,21 @@
+@use 'variables' as *;
+@use 'reset';
+
+
+.features-grid,
+.programs-grid,
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card,
+.program-card,
+.impact-box {
+    background: $bg-light;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}

@@ -6,10 +6,80 @@
     <title>
       La Mejor Academia Tech para Conquistar tu Futuro | Conquer Blocks
     </title>
-    <link rel="stylesheet" href="./src/scss/main.scss" />
   </head>
   <body>
-    <header class="hero-section">
+    <header class="header">
+      <nav class="navbar">
+        <figure>
+          <img
+            class="logo"
+            width="150px"
+            src="./src/img/common/logotipo-conquer-crypto_blanco.png"
+            alt="Logotipo de Conquer Crypto"
+          />
+        </figure>
+
+        <label class="label_hamburguesa" for="menu_hamburguesa">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="35"
+            fill="currentColor"
+            class="list_icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="35"
+            fill="currentColor"
+            class="close_icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+        </label>
+
+        <input
+          class="menu_hamburguesa"
+          type="checkbox"
+          name=""
+          id="menu_hamburguesa"
+        />
+
+        <ul class="ul_links">
+          <li class="li_links">
+            <a class="link fancy-button" href="home.html">Home</a>
+          </li>
+          <li class="li_links">
+            <a class="link fancy-button" href="quienes-somos.html"
+              >Quiénes Somos</a
+            >
+          </li>
+          <li class="li_links">
+            <a class="link fancy-button" href="cursos.html">Cursos</a>
+          </li>
+          <li class="li_links">
+            <a class="link fancy-button" href="blog.html">Blog</a>
+          </li>
+          <li class="li_links">
+            <a class="link fancy-button" href="registro.html">Registro</a>
+          </li>
+          <li class="li_links">
+            <a class="link fancy-button" href="login.html">Login</a>
+          </li>
+          <li class="li_links">
+            <a class="link fancy-button" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </nav>
       <div class="container">
         <h1>La Mejor Academia Tech para Conquistar tu Futuro</h1>
         <p class="hero-subtitle">
@@ -17,7 +87,11 @@
           <strong>sueldo alto</strong>, aprendiendo en 12 meses una profesión
           tecnológica con <strong>0% de paro.</strong>
         </p>
-        <a href="#contacto" class="btn-primary">Vídeo GRATIS de 15 minutos</a>
+        <a
+          href="https://www.youtube.com/watch?v=3EBOxZM00B0"
+          class="btn-primary"
+          >Vídeo GRATIS de 15 minutos</a
+        >
       </div>
     </header>
 
@@ -171,6 +245,10 @@
           personalizada.
         </p>
         <a href="#" class="btn-whatsapp">Contactar por WhatsApp</a>
+        <!-- <p><a href="./aviso-legal.html">Aviso legal</a></p> -->
+      </div>
+      <div class="aviso-footer">
+        <p>© Conquer Blocks · <a href="./aviso-legal.html">Aviso legal</a></p>
       </div>
     </footer>
 

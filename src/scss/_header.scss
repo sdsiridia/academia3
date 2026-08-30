@@ -1,0 +1,236 @@
+@use 'variables' as v;
+@use 'reset';
+@use 'mixins' as m;
+
+// Estilos globales de secciones (puedes separarlos en archivos individuales)
+.header {
+    background-color: v.$primary-color;
+    color: v.$text-light;
+    text-align: center;
+    padding: 6rem 0;
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+    }
+
+    .btn-primary {
+        background-color: v.$accent-color;
+        color: v.$text-light;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: v.$transition;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    .navbar {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // flex-wrap: wrap;
+        padding: 0 v.$padding_left_rigt;
+
+        @include m.breakpoint(tablet) {
+            padding: 0 6px;
+        }
+    }
+
+    .menu_hamburguesa {
+        display: none;
+    }
+
+    .menu_hamburguesa:checked~.ul_links {
+        height: calc(100vh - v.$altura_header);
+    }
+
+    .logo {
+        color: v.$white;
+
+    }
+
+    .label_hamburguesa {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .list_icon {
+        color: v.$white;
+        cursor: pointer;
+        display: block;
+        transition: opacity 0.3s ease;
+    }
+
+    .close_icon {
+        color: v.$white;
+        cursor: pointer;
+        display: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu_hamburguesa:checked+.label_hamburguesa .list_icon {
+        display: none;
+    }
+
+    .menu_hamburguesa:checked+.label_hamburguesa .close_icon {
+        display: block;
+        z-index: 10;
+    }
+
+    .ul_links {
+        width: 100%;
+        background-color: v.$primary-color;
+        z-index: 1;
+        position: absolute;
+        top: v.$altura_header;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        list-style: none;
+        transition: all .3s;
+    }
+
+    // .li_links {
+    // }
+    .link {
+        font-size: 2.5rem;
+        color: v.$white;
+        font-weight: bold;
+    }
+
+    .fancy-button {
+        text-decoration: none;
+    }
+
+
+    @include m.breakpoint(tablet) {
+        .label_hamburguesa {
+            display: none;
+        }
+
+        .fancy-button {
+            text-decoration: none;
+        }
+
+        .ul_links {
+            position: static;
+            width: auto;
+            height: auto;
+            flex-direction: row;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .link {
+            font-size: 1rem;
+            transition: all .3s;
+            padding: .2rem .7rem;
+        }
+
+        .li_links a {
+            font-size: 0.85rem;
+        }
+
+        // .link:hover{
+        //     // background-color: v.$orange_2;
+        //     background-color: #ffcc00;
+        //     transform: translateY(-5px);
+        // }
+
+    }
+
+    @include m.breakpoint(desktop) {
+        .fancy-button {
+            display: block;
+            width: 100%;
+            // border: 1px solid #AAA;
+            // text-decoration: none;
+            color: #222;
+            // padding: 6px 10px;
+            // margin-top: 10px;
+            text-align: center;
+            position: relative;
+            transition: color .3s;
+        }
+
+        .fancy-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background-color: v.$orange_1;
+            z-index: -1;
+
+            left: 100%;
+            width: 0%;
+            transition: .3s;
+        }
+
+        .fancy-button:hover {
+            color: white;
+        }
+
+        .fancy-button:hover::before {
+            left: 0%;
+            width: 100%;
+            transition: width .3s;
+        }
+
+        .li_links a {
+            font-size: 1.2rem;
+            color: v.$white;
+        }
+    }
+
+
+    // Boton para hacer la animación del menu hamburguesa
+    // button {
+    //     display: flex;
+    //     flex-direction: column;
+    //     width: 3rem;
+    //     height: 3rem;
+    //     border: 0;
+    //     background: transparent;
+    //     gap: 0.65rem;
+
+    // }
+
+    // button>div {
+    //     background: black;
+    //     height: 2px;
+    //     width: 100%;
+    //     border-radius: 5px;
+    //     transition: all .5s;
+    //     transform-origin: left;
+    // }
+
+    // button:hover div:first-child {
+    //     transform: rotate(45deg);
+    // }
+
+    // button:hover div:nth-child(2) {
+    //     opacity: 0;
+    // }
+
+    // button:hover div:nth-child(3) {
+    //     transform: rotate(-45deg);
+    // }
+}

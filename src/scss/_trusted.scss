@@ -1,0 +1,14 @@
+@use 'variables' as *;
+@use 'reset';
+
+
+.trusted-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 2rem;
+}
