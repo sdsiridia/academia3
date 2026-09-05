@@ -1,0 +1,28 @@
+import"./_style-E96Xn1_V.js";document.addEventListener(`DOMContentLoaded`,()=>{let e=document.getElementById(`login-form`),t=document.getElementById(`email`),n=t?.closest(`.input-wrapper`),r=document.getElementById(`email-error`),i=document.getElementById(`password`),a=i?.closest(`.input-wrapper`),o=document.getElementById(`password-error`),s=document.getElementById(`toggle-password`),c=document.getElementById(`submit-btn`),l=document.getElementById(`global-alert`),u=document.getElementById(`alert-text`);if(!e||!t)return;let d={"gmai.com":`gmail.com`,"gamil.com":`gmail.com`,"gmial.com":`gmail.com`,"gmaill.com":`gmail.com`,"hotmial.com":`hotmail.com`,"hotmai.com":`hotmail.com`,"outlok.com":`outlook.com`,"outloo.com":`outlook.com`,"yaho.com":`yahoo.com`,"yahou.com":`yahoo.com`,"iclou.com":`icloud.com`},f=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/,p=!1,m=!1;function h(e){let t=e.trim();if(!t)return{isValid:!1,message:`El correo electrónico es obligatorio.`};if(!f.test(t)){if(!t.includes(`@`))return{isValid:!1,message:`Falta el símbolo "@" en la dirección de correo.`};let e=t.split(`@`);return!e[1]||!e[1].includes(`.`)?{isValid:!1,message:`Introduce un dominio válido después del "@" (ejemplo: .com, .es).`}:{isValid:!1,message:`Introduce un formato de correo electrónico válido (ej: alumno@conquerblocks.com).`}}let[n,r]=t.toLowerCase().split(`@`);return d[r]?{isValid:!1,message:`¿Quisiste decir `,suggestion:`${n}@${d[r]}`}:{isValid:!0,message:``}}function g(e=!0){if(e&&!p)return;let i=h(t.value);return i.isValid?(n?.classList.remove(`has-error`),n?.classList.add(`has-success`),t.setAttribute(`aria-invalid`,`false`),r&&(r.classList.remove(`is-visible`),r.innerHTML=``)):(n?.classList.remove(`has-success`),n?.classList.add(`has-error`),t.setAttribute(`aria-invalid`,`true`),r&&(r.classList.add(`is-visible`),i.suggestion?(r.innerHTML=`
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <span>${i.message}</span>
+            <button type="button" class="suggestion-btn" id="email-suggestion-btn" data-email="${i.suggestion}">${i.suggestion}</button>?
+          `,document.getElementById(`email-suggestion-btn`)?.addEventListener(`click`,()=>{t.value=i.suggestion,g(!1),t.focus()})):r.innerHTML=`
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <span>${i.message}</span>
+          `)),i.isValid}function _(e=!0){if(e&&!m||!i)return!0;let t=i.value,n=!0,r=``;return t?t.length<6&&(n=!1,r=`La contraseña debe tener al menos 6 caracteres.`):(n=!1,r=`Por favor, introduce tu contraseña.`),n?(a?.classList.remove(`has-error`),a?.classList.add(`has-success`),i.setAttribute(`aria-invalid`,`false`),o&&(o.classList.remove(`is-visible`),o.innerHTML=``)):(a?.classList.remove(`has-success`),a?.classList.add(`has-error`),i.setAttribute(`aria-invalid`,`true`),o&&(o.classList.add(`is-visible`),o.innerHTML=`
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+          <span>${r}</span>
+        `)),n}t.addEventListener(`blur`,()=>{p=!0,g(!1)}),t.addEventListener(`input`,()=>{p&&g(!1)}),i&&(i.addEventListener(`blur`,()=>{m=!0,_(!1)}),i.addEventListener(`input`,()=>{m&&_(!1)})),s?.addEventListener(`click`,()=>{if(!i)return;let e=i.type===`password`;i.type=e?`text`:`password`,s.setAttribute(`aria-label`,e?`Ocultar contraseña`:`Ver contraseña`),s.innerHTML=e?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        </svg>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>`}),e.addEventListener(`submit`,e=>{e.preventDefault(),p=!0,m=!0;let n=g(!1),r=_(!1);if(!n){t.focus();return}if(!r&&i){i.focus();return}if(c){c.classList.add(`is-loading`),c.disabled=!0;let e=c.querySelector(`.btn-text`);e&&(e.textContent=`Verificando credenciales...`)}setTimeout(()=>{if(c){c.classList.remove(`is-loading`),c.disabled=!1;let e=c.querySelector(`.btn-text`);e&&(e.textContent=`Entrar a la plataforma`)}l&&u&&(l.className=`auth-alert is-visible is-success`,l.innerHTML=`
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span id="alert-text">¡Validación exitosa! Acceso concedido al Campus Virtual de Conquer Blocks.</span>
+        `,l.scrollIntoView({behavior:`smooth`,block:`nearest`}))},1200)})});
