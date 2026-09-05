@@ -1,0 +1,159 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.courses-body {
+  background: #f7f6f2;
+  color: v.$black;
+}
+
+.courses-hero {
+  padding: 4.25rem 0 3.5rem;
+  color: v.$white;
+  background: linear-gradient(122deg, #141d2c, #0b0f19 60%, #273225);
+}
+
+.courses-hero__eyebrow,
+.course-card__tag,
+.courses-list__heading > p {
+  margin-bottom: .65rem;
+  color: v.$orange;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.courses-hero h1 {
+  max-width: 18ch;
+  margin: 0;
+  color: inherit;
+  font-size: clamp(2.35rem, 11vw, 4.7rem);
+  line-height: 1.05;
+  letter-spacing: -.055em;
+}
+
+.courses-hero h1 + p {
+  max-width: 38rem;
+  margin-top: 1.25rem;
+  color: #d1d2d7;
+  font-size: 1rem;
+}
+
+.courses-list {
+  padding-block: 3.5rem 4.5rem;
+}
+
+.courses-list__heading {
+  margin-bottom: 1.75rem;
+}
+
+.courses-list__heading h2 {
+  color: v.$black;
+  font-size: clamp(1.75rem, 7vw, 2.7rem);
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+
+.courses-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.course-card {
+  overflow: hidden;
+  background: v.$white;
+  border: 1px solid #e6e4de;
+  border-radius: .75rem;
+  box-shadow: 0 8px 24px rgb(16 17 22 / 7%);
+}
+
+.course-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+}
+
+.course-card__content {
+  padding: 1.4rem;
+}
+
+.course-card h3 {
+  margin: 0;
+  color: v.$black;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+.course-card__meta {
+  margin-top: .7rem;
+  color: v.$orange_2;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.course-card__meta + p {
+  margin-top: .75rem;
+  color: v.$gray_2;
+  font-size: .94rem;
+}
+
+.course-card__more {
+  margin-top: 1.1rem;
+}
+
+.course-card__more summary {
+  width: max-content;
+  color: v.$orange_2;
+  font-size: .88rem;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.course-card__more summary::-webkit-details-marker {
+  display: none;
+}
+
+.course-card__more summary span {
+  display: inline-block;
+  margin-left: .25rem;
+  transition: transform .2s ease;
+}
+
+.course-card__more[open] summary span {
+  transform: rotate(90deg);
+}
+
+.course-card__more div {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e8e5df;
+  color: v.$gray_2;
+  font-size: .9rem;
+}
+
+@include m.breakpoint(tablet) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include m.breakpoint(desktop) {
+  .courses-hero {
+    padding-block: 6rem 5rem;
+  }
+
+  .courses-list {
+    padding-block: 5rem 6rem;
+  }
+
+  .course-card {
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-.35rem);
+    box-shadow: 0 16px 32px rgb(16 17 22 / 12%);
+  }
+}

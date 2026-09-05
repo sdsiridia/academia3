@@ -9,75 +9,20 @@
   </head>
   <body>
     <header class="header">
-      <nav class="navbar">
-        <figure>
-          <img
-            class="logo"
-            width="150px"
-            src="./src/img/common/logotipo-conquer-crypto_blanco.png"
-            alt="Logotipo de Conquer Crypto"
-          />
-        </figure>
-
-        <label class="label_hamburguesa" for="menu_hamburguesa">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="35"
-            height="35"
-            fill="currentColor"
-            class="list_icon"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="35"
-            height="35"
-            fill="currentColor"
-            class="close_icon"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
-            />
-          </svg>
+      <nav class="blog-nav" aria-label="Navegación principal">
+        <a class="blog-nav__brand" href="index.html" aria-label="Ir al inicio de Conquer Blocks">
+          <img src="./src/img/common/logotipo-conquer-crypto_blanco.png" alt="Conquer Blocks" />
+        </a>
+        <input class="blog-nav__toggle" type="checkbox" id="main-menu" />
+        <label class="blog-nav__menu-button" for="main-menu">
+          <span class="sr-only">Abrir o cerrar menú</span>
+          <span></span><span></span><span></span>
         </label>
-
-        <input
-          class="menu_hamburguesa"
-          type="checkbox"
-          name=""
-          id="menu_hamburguesa"
-        />
-
-        <ul class="ul_links">
-          <li class="li_links">
-            <a class="link fancy-button" href="home.html">Home</a>
-          </li>
-          <li class="li_links">
-            <a class="link fancy-button" href="quienes-somos.html"
-              >Quiénes Somos</a
-            >
-          </li>
-          <li class="li_links">
-            <a class="link fancy-button" href="cursos.html">Cursos</a>
-          </li>
-          <li class="li_links">
-            <a class="link fancy-button" href="blog.html">Blog</a>
-          </li>
-          <li class="li_links">
-            <a class="link fancy-button" href="registro.html">Registro</a>
-          </li>
-          <li class="li_links">
-            <a class="link fancy-button" href="login.html">Login</a>
-          </li>
-          <li class="li_links">
-            <a class="link fancy-button" href="contacto.html">Contacto</a>
-          </li>
+        <ul class="blog-nav__links">
+          <li><a class="is-active" href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
       <div class="container">
@@ -143,6 +88,10 @@
 
         <div class="programs-grid">
           <div class="program-card">
+            <img
+              src="./src/img/home/mia-hero 1.avif"
+              alt="Desarrollo Web Full Stack"
+            />
             <h3>Desarrollo Web Full Stack</h3>
             <p class="program-meta">Online • Medio Tiempo • 12 meses</p>
             <p>
@@ -151,6 +100,10 @@
             </p>
           </div>
           <div class="program-card">
+            <img
+              src="./src/img/home/69af4261f07d05b9eec4d15f_implementing-ab-testing-optimizing-landing-pages-p-1080.avif"
+              alt="Desarrollo Blockchain"
+            />
             <h3>Desarrollo Blockchain</h3>
             <p class="program-meta">Online • Medio Tiempo • 12 meses</p>
             <p>
@@ -159,6 +112,10 @@
             </p>
           </div>
           <div class="program-card">
+            <img
+              src="./src/img/home/mdbc-hero3.avif"
+              alt="Inteligencia Artificial"
+            />
             <h3>Inteligencia Artificial</h3>
             <p class="program-meta">Online • Medio Tiempo • 12 meses</p>
             <p>
@@ -167,6 +124,7 @@
             </p>
           </div>
           <div class="program-card">
+            <img src="./src/img/blog/chema.jpg" alt="Ciberseguridad" />
             <h3>Ciberseguridad con Chema Alonso</h3>
             <p class="program-meta">Online • Medio Tiempo • 12 meses</p>
             <p>

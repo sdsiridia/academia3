@@ -8,11 +8,23 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="page-body">
-    <header class="page-header">
-      <a class="page-logo" href="./index.html" aria-label="Ir al inicio de Conquer Blocks">
-        <img src="./src/img/common/logotipo-conquer-crypto_blanco.png" alt="Conquer Blocks" />
-      </a>
-      <a class="page-header__link" href="./index.html">Volver al inicio</a>
+    <header class="blog-header">
+      <nav class="blog-nav" aria-label="Navegación principal">
+        <a class="blog-nav__brand" href="index.html" aria-label="Ir al inicio de Conquer Blocks">
+          <img src="./src/img/common/logotipo-conquer-crypto_blanco.png" alt="Conquer Blocks" />
+        </a>
+        <input class="blog-nav__toggle" type="checkbox" id="error-menu" />
+        <label class="blog-nav__menu-button" for="error-menu">
+          <span class="sr-only">Abrir o cerrar menú</span>
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="blog-nav__links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
     </header>
     <main class="status-page">
       <div class="status-page__content">
