@@ -1,0 +1,416 @@
+@use 'sass:color';
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// Contenedor principal de la página de Contacto
+.contact-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: v.$primary-color;
+  color: v.$text-light;
+}
+
+.contact-main {
+  flex: 1;
+  padding: 4rem 1rem;
+  @include m.conquer-tech-bg;
+}
+
+.contact-shell {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+// Columna izquierda: Información institucional y canales directos
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .contact-eyebrow {
+    color: v.$orange;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: v.$white;
+    margin: 0;
+  }
+
+  .contact-desc {
+    color: #a0a6b7;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 35rem;
+  }
+}
+
+// Canales directos de contacto
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.channel-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 1.25rem 1.4rem;
+  background: rgba(19, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+
+  .channel-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 98, 2, 0.1);
+    color: v.$orange;
+    display: grid;
+    place-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    svg, img {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    &.icon-whatsapp {
+      background: rgba(37, 211, 102, 0.12);
+      color: #25d366;
+    }
+
+    &.icon-discord {
+      background: rgba(88, 101, 242, 0.12);
+      color: #5865F2;
+    }
+  }
+
+  .channel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    .channel-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #8c93a5;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .channel-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: v.$white;
+    }
+
+    .channel-note {
+      font-size: 0.84rem;
+      color: #727a8e;
+    }
+  }
+
+  &:hover {
+    background: rgba(25, 32, 50, 0.9);
+    border-color: rgba(255, 98, 2, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
+
+    .channel-icon {
+      transform: scale(1.08);
+    }
+  }
+}
+
+// Columna derecha: Tarjeta del formulario de contacto
+.contact-form-card {
+  background: rgba(19, 24, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2.25rem 2rem;
+  box-shadow: 
+    0 20px 45px -15px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 98, 2, 0.08);
+  transition: box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 
+      0 25px 50px -15px rgba(0, 0, 0, 0.7),
+      0 0 25px rgba(255, 98, 2, 0.1);
+  }
+}
+
+.contact-form-header {
+  margin-bottom: 1.75rem;
+
+  h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: v.$white;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: #9ea3b5;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+}
+
+// Formulario de contacto
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+
+    @include m.breakpoint(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+  }
+
+  .form-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #e2e4eb;
+    letter-spacing: 0.01em;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      color: #6b7280;
+      pointer-events: none;
+      transition: color 0.2s ease;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 2.75rem;
+      background: rgba(11, 15, 25, 0.7);
+      border: 1px solid #283044;
+      border-radius: 0.5rem;
+      color: v.$white;
+      font-family: inherit;
+      font-size: 0.94rem;
+      transition: all 0.2s ease;
+      outline: none;
+
+      &::placeholder {
+        color: #555d71;
+      }
+
+      &:hover {
+        border-color: #3b4661;
+      }
+
+      &:focus {
+        border-color: v.$orange;
+        box-shadow: 0 0 0 3px rgba(255, 98, 2, 0.2);
+        background: rgba(11, 15, 25, 0.9);
+
+        + .input-icon,
+        ~ .input-icon {
+          color: v.$orange;
+        }
+      }
+    }
+
+    select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff6202'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.1rem;
+      padding-right: 2.75rem;
+
+      option {
+        background: #121826;
+        color: v.$white;
+        padding: 0.5rem;
+      }
+    }
+
+    textarea {
+      padding-top: 0.85rem;
+      padding-left: 2.75rem;
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .textarea-icon {
+      align-self: flex-start;
+      margin-top: 0.95rem;
+    }
+  }
+
+  // Checkbox de consentimiento
+  .consent-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.83rem;
+    color: #9aa0b0;
+    line-height: 1.4;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 0.2rem;
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 1.1rem;
+      height: 1.1rem;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid #323b4e;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      transition: all 0.2s ease;
+
+      &::before {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em v.$orange;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      }
+
+      &:checked {
+        border-color: v.$orange;
+        background: rgba(255, 98, 2, 0.15);
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid v.$orange;
+        outline-offset: 2px;
+      }
+    }
+
+    a {
+      color: v.$orange;
+      text-decoration: underline;
+
+      &:hover {
+        color: color.adjust(v.$orange, $lightness: 10%);
+      }
+    }
+  }
+
+  // Botón enviar
+  .btn-submit-contact {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, v.$orange 0%, v.$orange_2 100%);
+    color: v.$white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.95rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 98, 2, 0.35);
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+
+    svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, color.adjust(v.$orange, $lightness: 4%) 0%, v.$orange 100%);
+      box-shadow: 0 6px 20px rgba(255, 98, 2, 0.45);
+      transform: translateY(-1px);
+
+      svg {
+        transform: translateX(3px);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Responsividad para dos columnas en desktop
+@include m.breakpoint(desktop) {
+  .contact-main {
+    padding-block: 5.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-form-card {
+    padding: 2.75rem 2.5rem;
+  }
+}

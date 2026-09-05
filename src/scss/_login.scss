@@ -1,0 +1,532 @@
+@use 'sass:color';
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// Contenedor principal de la página de Login
+.login-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: v.$primary-color;
+  color: v.$text-light;
+}
+
+.login-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  @include m.conquer-tech-bg;
+}
+
+// Tarjeta de Autenticación
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  background: rgba(19, 24, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2.25rem 2rem;
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 98, 2, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 
+      0 25px 50px -15px rgba(0, 0, 0, 0.7),
+      0 0 25px rgba(255, 98, 2, 0.12);
+  }
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .auth-eyebrow {
+    color: v.$orange;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: v.$white;
+    line-height: 1.2;
+    margin: 0 0 0.6rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: #9ea3b5;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+}
+
+// Mensaje global de notificación (éxito o error general)
+.auth-alert {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s ease;
+
+  &.is-visible {
+    display: flex;
+  }
+
+  &.is-success {
+    background: rgba(78, 225, 160, 0.12);
+    border: 1px solid rgba(78, 225, 160, 0.4);
+    color: #4ee1a0;
+  }
+
+  &.is-error {
+    background: rgba(255, 77, 79, 0.12);
+    border: 1px solid rgba(255, 77, 79, 0.4);
+    color: #ff7875;
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+// Formulario
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #e2e4eb;
+  letter-spacing: 0.01em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .forgot-link {
+    font-size: 0.8rem;
+    color: v.$orange;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: color.adjust(v.$orange, $lightness: 12%);
+      text-decoration: underline;
+    }
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    color: #6b7280;
+    pointer-events: none;
+    transition: color 0.2s ease;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.85rem 2.8rem 0.85rem 2.75rem;
+    background: rgba(11, 15, 25, 0.7);
+    border: 1px solid #283044;
+    border-radius: 0.5rem;
+    color: v.$white;
+    font-family: inherit;
+    font-size: 0.94rem;
+    transition: all 0.2s ease;
+    outline: none;
+
+    &::placeholder {
+      color: #555d71;
+    }
+
+    &:hover {
+      border-color: #3b4661;
+    }
+
+    &:focus {
+      border-color: v.$orange;
+      box-shadow: 0 0 0 3px rgba(255, 98, 2, 0.2);
+      background: rgba(11, 15, 25, 0.9);
+    }
+  }
+
+  // Estado Inválido
+  &.has-error {
+    input {
+      border-color: #ff4d4f;
+      background: rgba(255, 77, 79, 0.04);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.2);
+      }
+    }
+
+    .input-icon {
+      color: #ff4d4f;
+    }
+
+    .status-icon {
+      color: #ff4d4f;
+      opacity: 1;
+    }
+  }
+
+  // Estado Válido
+  &.has-success {
+    input {
+      border-color: #4ee1a0;
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(78, 225, 160, 0.2);
+      }
+    }
+
+    .input-icon {
+      color: #4ee1a0;
+    }
+
+    .status-icon {
+      color: #4ee1a0;
+      opacity: 1;
+    }
+  }
+
+  // Icono de estado de validación a la derecha
+  .status-icon {
+    position: absolute;
+    right: 0.9rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  // Botón mostrar/ocultar contraseña
+  .toggle-password {
+    position: absolute;
+    right: 0.85rem;
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: v.$white;
+      outline: none;
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}
+
+// Mensaje de error bajo el input
+.form-error {
+  display: none;
+  font-size: 0.8rem;
+  color: #ff7875;
+  margin-top: 0.3rem;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.35;
+
+  &.is-visible {
+    display: flex;
+    animation: shake 0.3s ease;
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  .suggestion-btn {
+    background: none;
+    border: none;
+    color: v.$orange;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin-left: 0.2rem;
+
+    &:hover {
+      color: color.adjust(v.$orange, $lightness: 10%);
+    }
+  }
+}
+
+// Fila de opciones (recordar sesión)
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.25rem;
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.86rem;
+    color: #a8adb9;
+    cursor: pointer;
+    user-select: none;
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 1.1rem;
+      height: 1.1rem;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid #323b4e;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      transition: all 0.2s ease;
+
+      &::before {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em v.$orange;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      }
+
+      &:checked {
+        border-color: v.$orange;
+        background: rgba(255, 98, 2, 0.15);
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid v.$orange;
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+// Botón principal de submit
+.btn-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, v.$orange 0%, v.$orange_2 100%);
+  color: v.$white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 98, 2, 0.35);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, color.adjust(v.$orange, $lightness: 4%) 0%, v.$orange 100%);
+    box-shadow: 0 6px 20px rgba(255, 98, 2, 0.45);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .spinner {
+    display: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+  }
+
+  &.is-loading {
+    .btn-text {
+      opacity: 0.85;
+    }
+    .spinner {
+      display: inline-block;
+    }
+  }
+}
+
+// Separador "o continuar con"
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1.25rem;
+  color: #555d71;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #252c3c;
+  }
+}
+
+// Botón social (Discord de Conquer)
+.btn-social {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: #202738;
+  border: 1px solid #2e384e;
+  border-radius: 0.5rem;
+  color: #cfd4df;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: #5865F2;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: #283146;
+    border-color: #3e4b67;
+    color: v.$white;
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Pie de la tarjeta (registro / ayuda)
+.auth-card-footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  font-size: 0.88rem;
+  color: #8c92a4;
+
+  a {
+    color: v.$orange;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: color.adjust(v.$orange, $lightness: 10%);
+      text-decoration: underline;
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Responsividad
+@include m.breakpoint(tablet) {
+  .auth-card {
+    padding: 2.75rem 2.5rem;
+  }
+
+  .auth-header h1 {
+    font-size: 2.15rem;
+  }
+}

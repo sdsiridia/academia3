@@ -9,7 +9,12 @@
 .courses-hero {
   padding: 4.25rem 0 3.5rem;
   color: v.$white;
-  background: linear-gradient(122deg, #141d2c, #0b0f19 60%, #273225);
+  @include m.conquer-tech-bg;
+
+  .blog-shell {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .courses-hero__eyebrow,

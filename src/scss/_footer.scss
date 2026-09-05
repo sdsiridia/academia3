@@ -1,11 +1,17 @@
 @use 'variables' as *;
+@use 'mixins' as m;
 @use 'reset';
 
 
 .footer {
-    background-color: $primary-color;
+    @include m.conquer-tech-bg;
     color: $text-light;
     text-align: center;
+
+    > .container {
+        position: relative;
+        z-index: 1;
+    }
 
     .btn-whatsapp {
         display: inline-block;

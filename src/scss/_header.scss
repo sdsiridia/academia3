@@ -4,10 +4,17 @@
 
 // Estilos globales de secciones (puedes separarlos en archivos individuales)
 .header {
-    background-color: v.$primary-color;
+    @include m.conquer-tech-bg;
     color: v.$text-light;
     text-align: center;
     padding: 0;
+
+    > .container,
+    .blog-nav,
+    .navbar {
+        position: relative;
+        z-index: 1;
+    }
 
     h1 {
         font-size: 2.5rem;

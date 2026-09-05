@@ -52,3 +52,24 @@
     margin-top: 24px;
     text-decoration: none;
 }
+
+@mixin conquer-tech-bg() {
+    background: 
+        radial-gradient(circle at 10% 25%, rgba(255, 98, 2, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 75%, rgba(20, 30, 48, 0.6) 0%, transparent 50%),
+        linear-gradient(135deg, #0b0f19 0%, #121826 50%, #0b0f19 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+        pointer-events: none;
+    }
+}

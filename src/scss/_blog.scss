@@ -117,7 +117,12 @@
 .blog-hero {
   padding: 4.25rem 0 3.5rem;
   color: v.$white;
-  background: linear-gradient(122deg, #171b2b, #0b0f19 64%, #302014);
+  @include m.conquer-tech-bg;
+
+  .blog-shell {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .blog-hero__eyebrow,

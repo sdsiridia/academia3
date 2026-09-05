@@ -11,6 +11,8 @@ export default defineConfig({
         cursos: resolve(import.meta.dirname, 'cursos.html'),
         'aviso-legal': resolve(import.meta.dirname, 'aviso-legal.html'),
         404: resolve(import.meta.dirname, '404.html'),
+        login: resolve(import.meta.dirname, 'login.html'),
+        contacto: resolve(import.meta.dirname, 'contacto.html'),
       },
     },
   },
